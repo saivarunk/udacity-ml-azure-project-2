@@ -54,47 +54,47 @@ Figure 4 - Bankmarketing dataset is selected while creating AutoML experiment.
 
 
 
-Figure 4 - Compute specs are provided while creating AutoML experiment
+Figure 5 - Compute specs are provided while creating AutoML experiment
 
 ![diagram](images/automl-compute.png)
 
 
-Figure 5 - Experiment name, Compuet target, Target variable is selected before creating AutoML experiment
+Figure 6 - Experiment name, Compuet target, Target variable is selected before creating AutoML experiment
 
 ![diagram](images/automl-target.png)
 
 
-Figure 6 - Exit creiteria like training job time, concurrency are configured before creating AutoML experiment
+Figure 7 - Exit creiteria like training job time, concurrency are configured before creating AutoML experiment
 
 ![diagram](images/automl-criteria.png)
 
 
 
-Figure 6 - AutoML experiment in creation state.
+Figure 8 - AutoML experiment in creation state.
 
 ![diagram](images/auto-ml-0.png)
 
 
 
-Figure 7 - AutoML experiment created.
+Figure 9 - AutoML experiment created.
 
 ![diagram](images/auto-ml-1.png)
 
 
 
-Figure 8 - List of AutoML models created
+Figure 10 - List of AutoML models created
 
 ![diagram](images/auto-ml-2.png)
 
 
 
-Figure 9 - Best AutoML model created was VotingEnsemble Classifier
+Figure 11 - Best AutoML model created was VotingEnsemble Classifier
 
 ![diagram](images/auto-ml-best.png)
 
 
 
-Figure 10 - VotingEnsemble Classifier metrics
+Figure 12 - VotingEnsemble Classifier metrics
 
 ![diagram](images/auto-ml-best-metrics.png)
 
@@ -107,18 +107,18 @@ VotingEnsemble Classifier, which was the best performing model of all models gen
 We choose the best model for deployment and enabled "Authentication" while deploying the model using Azure Container Instance (ACI) as compute type.
 
 
-Figure 11 - Creation of Model Endpoint
+Figure 13 - Creation of Model Endpoint
 
 ![diagram](images/endpoint-creation.png)
 
 
-Figure 12 - Output from logs.py after enabling Application Monitoring and Insights
+Figure 14 - Output from logs.py after enabling Application Monitoring and Insights
 
 ![diagram](images/logs.png)
 
 
 
-Figure 13 - Endpoint details shwoing Application Monitoring and Insights enabled post logs.py script is executed
+Figure 15 - Endpoint details shwoing Application Monitoring and Insights enabled post logs.py script is executed
 
 ![diagram](images/logs-enabled.png)
 
@@ -128,20 +128,21 @@ Figure 13 - Endpoint details shwoing Application Monitoring and Insights enabled
 
 After model is deployed as an endpoint, it is accesible via secure URL with authentication. Load testing is also performed to analyse the model responsiveness.
 
-Figure 14 - Swagger documentation running locally showing deployed endpoint specs
+
+Figure 16 - Swagger documentation running locally showing deployed endpoint specs
 
 
 ![diagram](images/swagger-1.png)
 
 
 
-Figure 15 - Swagger documentation running locally showing deployed endpoint specs
+Figure 17 - Swagger documentation running locally showing deployed endpoint specs
 
 ![diagram](images/swagger-loan.png)
 
 
 
-Figure 16 - Endpoint output from endpoint.py script
+Figure 18 - Endpoint output from endpoint.py script
 
 ![diagram](images/endpoint-op.png)
 
@@ -152,7 +153,7 @@ Figure 16 - Endpoint output from endpoint.py script
 The deployed endpoint is load tested using ab - Apache HTTP benchmarking tool, which will give us statistics on performance of the model interms of concurrency and response times.
 
 
-Figure 17 - ab benchmarking tool results in the terminal
+Figure 19 - ab benchmarking tool results in the terminal
 
 ![diagram](images/benchmark.png)
 
@@ -161,42 +162,42 @@ Figure 17 - ab benchmarking tool results in the terminal
 ## 5. Create pipeline with AutoML and REST endpoint
 
 
-Figure 18 - Notebook for creating Pipelien with AutoML and Model Endpoint
+Figure 20 - Notebook for creating Pipelien with AutoML and Model Endpoint
 
 ![diagram](images/notebook-1.png)
 
 
-Figure 19 - Bankmarketing dataset added to Datasets using python sdk
+Figure 21 - Bankmarketing dataset added to Datasets using python sdk
 
 ![diagram](images/notebook-dataset.png)
 
 
-Figure 20 - Notebook showing running state of Pipeline run
+Figure 22 - Notebook showing running state of Pipeline run
 
 ![diagram](images/notebook-pipeline-1.png)
 
 
-Figure 21 - Running state of Pipeline
+Figure 23 - Running state of Pipeline
 
 ![diagram](images/pipeline-1.png)
 
 
-Figure 22 - Notebook showing dataset metrics
+Figure 24 - Notebook showing dataset metrics
 
 ![diagram](images/notebook-pipeline-2.png)
 
 
-Figure 23 - Notebook showing published state of Pipeline endpoint run
+Figure 25 - Notebook showing published state of Pipeline endpoint run
 
 ![diagram](images/notebook-pipeline-published.png)
 
 
-Figure 24 - Final state of Pipeline endpoint, with REST endpoint
+Figure 26 - Final state of Pipeline endpoint, with REST endpoint
 
 ![diagram](images/pipeline-endpoint.png)
 
 
-Figure 25 - List of Pipeline Endpoints on Workspace -> Pipelines -> Pipeline Endpoint
+Figure 27 - List of Pipeline Endpoints on Workspace -> Pipelines -> Pipeline Endpoint
 
 ![diagram](images/pipeline-endpoint-list.png)
 
