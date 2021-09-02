@@ -23,12 +23,26 @@ The project mainly has 6 stages:
 
 ### 1. Authentication
 
-We have created a Service Principle (SP) and allow the SP access to ML workspace. This ensures azure cli and Python azure-sdk will be able to access the ML worksapce and manage resources.
+In this step, we need to install the Azure Machine Learning Extension which allows us to interact with Azure Machine Learning Studio, part of the `az` command. After having the Azure machine Learning Extension, we need to create a `Service Principal` account and associate it with the specific ML workspace.
+
+```bash
+az ad sp create-for-rbac --sdk-auth --name ml-auth
+```
+
+Running this command should generate a Service Principle as shown in the below screenshot.
+
 
 Figure 1 - Creation of Service Principle
 
 ![diagram](images/auth-1.jpg)
 
+
+The Service Principal created in the above step can be verified sing the below command :
+
+
+```bash
+az ad sp show --id <your-client-id>
+```
 
 
 Figure 2 - Displaying the Service Principle
@@ -40,13 +54,14 @@ Figure 2 - Displaying the Service Principle
 
 ### 2. Creating AutoML Experiment
 
-
-An AutoML experiment is created using Bankmarketing dataset and relavent compute resources are allocated and with a Exit Criteria.
+In this step, we will create an experiment using **Automated ML**, configure a compute cluster, and use that cluster to run the experiment.
 
 Figure 3 - Displaying the bankmarketing dataset in ML Studio -> Datasets
 
 ![diagram](images/dataset-1.png)
 
+
+The AutoML experiment is created using Bankmarketing dataset and relavent compute resources are allocated and with a Exit Criteria.
 
 Figure 4 - Bankmarketing dataset is selected while creating AutoML experiment.
 
@@ -54,14 +69,22 @@ Figure 4 - Bankmarketing dataset is selected while creating AutoML experiment.
 
 
 
+We need to configure a new compute cluster Standard_DS12_v2  for the Virtual Machine Size and select 1 as the number of minimum nodes.
+
+
 Figure 5 - Compute specs are provided while creating AutoML experiment
 
 ![diagram](images/automl-compute.png)
 
 
+
 Figure 6 - Experiment name, Compuet target, Target variable is selected before creating AutoML experiment
 
 ![diagram](images/automl-target.png)
+
+
+
+On Exit criterion, reduce the default (3 hours) to 1 and reduce the Concurrency from default to 5 (this number should always be less than the number of the compute cluster)
 
 
 Figure 7 - Exit creiteria like training job time, concurrency are configured before creating AutoML experiment
