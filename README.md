@@ -266,4 +266,14 @@ Figure 27 - List of Pipeline Endpoints on Workspace -> Pipelines -> Pipeline End
 ## Standout Suggestions
 
 - One of the suggestion from this AutoML run was the imbalanced data issue which can be observed in Data guardriles section of the experiment run.
+
 - This can lead to biased prediction, which can affect negatively the model's accuracy.
+
+- If we can address the issue with techniques like over-sampling, under-sampling or SMOTE, the accuracy can improve further.
+
+
+  Resources for Imbalanced Data:
+
+- Dealing with Imbalanced Data with AutoML - https://techcommunity.microsoft.com/t5/azure-ai/dealing-with-imbalanced-data-in-automl/ba-p/1625043
+
+- Azure Machine Learning Studio: SMOTE with multi class data - https://www.alirookie.com/post/azure-machine-learning-studio-smote-with-multi-class-data
