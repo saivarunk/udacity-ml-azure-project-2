@@ -146,7 +146,6 @@ Figure 13 - Creation of Model Endpoint
 Now that the *Best Model* is deployed, we need to enable Application Insights and retrieve logs. Although this is configurable at deploy time with a check-box, we chose to use the Python SDK to enable the logs using the script.
 
 
-
 Figure 14 - Output from logs.py after enabling Application Monitoring and Insights
 
 ![diagram](images/logs.png)
@@ -162,7 +161,16 @@ Figure 15 - Endpoint details showing Application Monitoring and Insights enabled
 
 ## 4. Consume Best using Model REST endpoint
 
-After model is deployed as an endpoint, it is accesible via secure URL with authentication. Load testing is also performed to analyse the model responsiveness.
+
+
+In this step, we will consume the deployed model using Swagger.
+
+Azure provides a [Swagger JSON file](https://swagger.io/) for deployed models. Head to the *Endpoints* section, and find your deployed model there, it should be the first one on the list.
+
+To access the Swagger documentation, we need to use swagger.sh and server.py scripts.
+
+1. `swagger.sh` will download the latest Swagger container, and it will run it on port 80. If you don't have permissions for port 80 on your computer, update the script to a higher number (above 9000 is a good idea).
+2. `serve.py` will start a Python server on port `8000`. This script needs to be right next to the downloaded `swagger.json` file. **NOTE:** this will not work if `swagger.json` is not on the same directory.
 
 
 Figure 16 - Swagger documentation running locally showing deployed endpoint specs
@@ -177,6 +185,7 @@ Figure 17 - Swagger documentation running locally showing deployed endpoint spec
 ![diagram](images/swagger-loan.png)
 
 
+Once the model is deployed, we need to use the `endpoint.py` script provided to interact with the trained model. In this step, we need to run the script, modifying both the `scoring_uri` and the `key` to match the key for your service and the URI that was generated after deployment. This URI can be found in the *Details* tab, above the *Swagger URI*.
 
 Figure 18 - Endpoint output from endpoint.py script
 
@@ -188,6 +197,12 @@ Figure 18 - Endpoint output from endpoint.py script
 
 The deployed endpoint is load tested using ab - Apache HTTP benchmarking tool, which will give us statistics on performance of the model interms of concurrency and response times.
 
+The benchmarking script can be run using:
+
+```bash
+./endpoint.sh
+```
+
 
 Figure 19 - ab benchmarking tool results in the terminal
 
@@ -196,6 +211,9 @@ Figure 19 - ab benchmarking tool results in the terminal
 
 
 ## 5. Create pipeline with AutoML and REST endpoint
+
+
+In this step, we will use the Jupyter Notebook provided in the starter files. We must make sure to update the notebook to have the same keys, URI, dataset, cluster, and model names already created.
 
 
 Figure 20 - Notebook for creating Pipelien with AutoML and Model Endpoint
@@ -247,5 +265,5 @@ Figure 27 - List of Pipeline Endpoints on Workspace -> Pipelines -> Pipeline End
 
 ## Standout Suggestions
 
-- One of the suggestion from this AutoML run was the imbalanced data issue which can be observed in Data guardriles section of the experiment run. 
+- One of the suggestion from this AutoML run was the imbalanced data issue which can be observed in Data guardriles section of the experiment run.
 - This can lead to biased prediction, which can affect negatively the model's accuracy.
